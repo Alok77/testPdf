@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('chart', 'DisplayController@index');
+Route::get('pdfview',array('as'=>'pdfview','uses'=>'DisplayController@pdfview'));
+
+Route::get('preview', 'DisplayController@preview');
+Route::get('download', 'DisplayController@download')->name('download');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
